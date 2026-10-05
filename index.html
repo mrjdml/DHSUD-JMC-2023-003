@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DHSUD JMC 2023-003 — Revised Price Ceiling for Socialized Housing</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#001A10;--panel:#002018;--card:#fff;--tint:#F0FAF5;
+  --ink:#001A10;--soft:#0D3020;--muted:#3A6050;
+  --em:#007A40;--eml:#00A855;--emp:#E0F7EC;
+  --gold:#C8880A;--goldl:#E8A820;--goldp:#FDF5E0;
+  --blue:#0A2A7A;--bluel:#1A4ACA;--bluep:#EAF0FC;
+  --red:#B02020;--redp:#FDEAEA;
+  --orange:#B05010;--orangep:#FEF0E4;
+  --purple:#5A1A8A;--purplep:#F2EAFA;
+  --teal:#006878;--tealp:#E0F5F8;
+  --navy:#0A1A3A;--navyp:#E8EDF8;
+  --border:#C0E0D0;
+  --shadow:0 2px 12px rgba(0,26,16,.10);
+  --r:12px;
+}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);min-height:100vh;color:var(--ink)}
+#header{background:var(--panel);border-bottom:2px solid var(--em);padding:20px 24px 0;position:sticky;top:0;z-index:100}
+.hi{max-width:1040px;margin:0 auto}
+.htop{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
+.eyebrow{color:var(--gold);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:5px}
+.htitle{color:#fff;font-family:Georgia,serif;font-weight:900;font-size:22px;line-height:1.2;margin-bottom:4px}
+.hsub{color:#80E0B0;font-weight:700;font-size:13px;margin-bottom:3px}
+.hmeta{color:#3A6050;font-size:11px}
+.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab-btn{background:transparent;border:none;border-radius:8px 8px 0 0;padding:9px 13px;cursor:pointer;font-size:11.5px;white-space:nowrap;color:#3A7058;font-weight:400;display:flex;align-items:center;gap:4px;transition:all .2s}
+.tab-btn.active{background:#fff;font-weight:700}
+#content{max-width:1040px;margin:0 auto;padding:24px 20px 90px}
+.sh2{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.sh2 h2{font-family:Georgia,serif;font-size:20px;font-weight:800}
+.section{display:none}.section.active{display:grid;gap:20px}
+#footer{position:sticky;bottom:0;background:var(--panel);border-top:2px solid var(--em);padding:8px 20px}
+.fi{max-width:1040px;margin:0 auto;display:flex;gap:4px;flex-wrap:wrap;justify-content:center}
+.foot-btn{background:transparent;border:1px solid transparent;border-radius:5px;padding:5px 9px;cursor:pointer;font-size:10.5px;white-space:nowrap;color:#3A7058;transition:all .15s}
+
+.card{background:var(--card);border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--shadow);padding:20px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.pill{display:inline-block;border-radius:20px;padding:3px 10px;font-size:11px;font-weight:700;letter-spacing:.3px}
+.badge{display:inline-block;border-radius:6px;padding:4px 9px;font-size:11px;font-weight:900;font-family:monospace;color:#fff}
+.sh{margin-bottom:14px}
+.sh .title{font-weight:800;font-size:15px}
+.sh .sub{color:var(--muted);font-size:12px;margin-top:2px}
+.kp{border-left:3px solid;padding:9px 13px;border-radius:0 8px 8px 0;margin-bottom:9px;font-size:13px;line-height:1.7;color:var(--soft)}
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{padding:10px 13px;text-align:left;font-weight:700;border-bottom:2px solid var(--border)}
+.tbl td{padding:9px 13px;border-bottom:1px solid var(--border);color:var(--soft)}
+.tbl tr:nth-child(even){background:var(--tint)}
+.step-row{display:flex;gap:13px;padding:11px 13px;border-radius:10px;margin-bottom:9px;background:var(--tint);border-left:4px solid var(--em)}
+.sn{width:28px;height:28px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;flex-shrink:0;margin-top:1px}
+.accord{background:var(--card);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;margin-bottom:10px}
+.ah{padding:13px 17px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;user-select:none}
+.ab{padding:0 17px 15px;border-top:1px solid var(--border);display:none}
+.ab.open{display:block}
+.tl{position:relative;padding-left:22px}
+.tl::before{content:'';position:absolute;left:7px;top:4px;bottom:4px;width:2px;background:var(--border)}
+.tl-item{position:relative;margin-bottom:15px}
+.tl-dot{position:absolute;left:-18px;top:5px;width:12px;height:12px;border-radius:50%;border:2px solid #fff}
+.tl-date{font-size:11px;font-weight:700;margin-bottom:1px}
+.tl-body{font-size:12.5px;color:var(--soft);line-height:1.6}
+
+/* BIG PRICE CARD */
+.price-hero{border-radius:var(--r);padding:20px;text-align:center;border:1px solid}
+.price-big{font-size:32px;font-weight:900;font-family:monospace;line-height:1.1;margin:6px 0}
+.price-sub{font-size:12px;margin-top:4px;opacity:.8}
+
+/* TIER CARD */
+.tier-card{border-radius:10px;padding:15px;border:1px solid;margin-bottom:10px}
+.tier-label{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:3px}
+.tier-price{font-size:22px;font-weight:900;font-family:monospace}
+.tier-detail{font-size:12px;margin-top:5px;line-height:1.6}
+
+/* COMPARISON */
+.vs-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center}
+.vs-box{padding:14px;border-radius:9px}
+.vs-lbl{text-align:center;font-weight:900;font-size:20px;color:var(--muted)}
+
+/* PERSON CARD */
+.pcard{background:var(--tint);border-radius:10px;padding:14px;border-left:4px solid;display:flex;gap:12px}
+.picon{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+
+/* QUIZ */
+.q-opt{padding:11px 15px;border-radius:9px;border:2px solid var(--border);font-size:13px;cursor:pointer;margin-bottom:8px;background:var(--card);color:var(--soft);line-height:1.5;transition:all .15s;display:block;width:100%;text-align:left}
+.q-opt:hover:not(:disabled){border-color:var(--em);color:var(--em);background:var(--emp)}
+.q-opt.correct{background:#E0F7EC!important;border-color:#007A40!important;color:#007A40!important}
+.q-opt.wrong{background:var(--redp)!important;border-color:var(--red)!important;color:var(--red)!important}
+#check-btn{width:100%;padding:13px;border:none;border-radius:9px;font-weight:700;font-size:14px;cursor:pointer;color:#fff;transition:background .2s}
+#check-btn:disabled{cursor:not-allowed}
+.exp-box{background:var(--bluep);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:12px 15px;margin-top:12px;font-size:13px;line-height:1.7;color:var(--soft);display:none}
+.sc{width:34px;height:34px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+.hi-badge{background:#FFD700;color:#1A0A00;border-radius:5px;padding:2px 8px;font-size:10px;font-weight:900;letter-spacing:.5px;display:inline-block;margin-left:6px}
+@media(max-width:680px){.grid2,.grid3,.vs-grid{grid-template-columns:1fr}.vs-lbl{display:none}}
+</style>
+</head>
+<body>
+
+<div id="header">
+  <div class="hi">
+    <div class="htop">
+      <div>
+        <div class="eyebrow">REB/REA Board Exam Reviewer · Housing Law <span class="hi-badge">HIGH YIELD</span></div>
+        <div class="htitle">DHSUD JMC 2023-003</div>
+        <div class="hsub">Revised Price Ceilings for Socialized Housing — October 19, 2023</div>
+        <div class="hmeta">REB: Special & Technical · REA: Land Management · Supersedes 2018 Price Caps</div>
+      </div>
+      <div style="text-align:right"><div style="font-size:32px">🏠</div><div style="color:#80E0B0;font-size:11px;font-weight:700">Top 1 Incoming 🏆</div></div>
+    </div>
+    <div class="tabs" id="tabs"></div>
+  </div>
+</div>
+
+<div id="content">
+  <div class="sh2"><span id="sec-icon" style="font-size:24px"></span><h2 id="sec-title" style="margin-left:6px"></h2></div>
+
+  <!-- ══ OVERVIEW ══ -->
+  <div class="section" id="sec-overview">
+    <div class="card" style="border-left:4px solid var(--gold);background:var(--goldp)">
+      <div style="color:var(--muted);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">What Is JMC 2023-003?</div>
+      <p style="color:var(--soft);font-size:14px;line-height:1.85">A <strong>Joint Memorandum Circular</strong> issued on <strong>October 19, 2023</strong> by the <strong>Department of Human Settlements and Urban Development (DHSUD)</strong> in coordination with other housing agencies. It revises and updates the <strong>price ceilings for socialized housing</strong> — both subdivision lots/units and condominium units — superseding the outdated 2018 price caps. All developers of socialized housing projects must comply with these new ceilings to qualify their units as "socialized."</p>
+    </div>
+
+    <!-- KEY FACTS GRID -->
+    <div class="grid2">
+      <div class="card"><div class="sh"><div class="title" style="color:var(--em)">📋 JMC 2023-003 At a Glance</div></div><div id="kf1"></div></div>
+      <div class="card"><div class="sh"><div class="title" style="color:var(--blue)">🏢 Issuing Agencies</div></div><div id="kf2"></div></div>
+    </div>
+
+    <!-- PRICE SNAPSHOT — THE BIG NUMBERS -->
+    <div class="card">
+      <div class="sh"><div class="title" style="color:var(--em)">💰 Price Ceilings at a Glance — The Numbers to Memorize</div><div class="sub">All figures as of October 19, 2023 · Supersedes SHFC & HLURB 2018 caps</div></div>
+      <div class="grid3" id="price-snapshot"></div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="card">
+      <div class="sh"><div class="title" style="color:var(--blue)">📅 Important Dates & Legislative Timeline</div><div class="sub">From BP 220 (1982) to JMC 2023-003</div></div>
+      <div class="tl" id="timeline"></div>
+    </div>
+
+    <!-- RELATED LAWS -->
+    <div class="card">
+      <div class="sh"><div class="title" style="color:var(--em)">📜 History of Related Laws & Issuances</div></div>
+      <div id="related-laws"></div>
+    </div>
+
+    <!-- PEOPLE -->
+    <div class="card">
+      <div class="sh"><div class="title" style="color:var(--purple)">👤 Important People & Offices</div></div>
+      <div class="grid2" id="people"></div>
+    </div>
+  </div>
+
+  <!-- ══ PRICE CEILINGS ══ -->
+  <div class="section" id="sec-prices">
+    <div class="card" style="background:var(--emp);border-left:4px solid var(--em)">
+      <div style="color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;margin-bottom:5px">JMC 2023-003 — Revised Price Ceilings</div>
+      <p style="color:var(--soft);font-size:14px;line-height:1.8">These are MAXIMUM selling prices — developers may sell BELOW these ceilings; any unit sold AT or BELOW these ceilings qualifies as a socialized housing unit. Ceilings are per unit inclusive of the lot for subdivision, and per unit for condominium.</p>
+    </div>
+
+    <!-- SUBDIVISION -->
+    <div class="card" style="border-top:3px solid var(--em)">
+      <div class="sh"><div class="title" style="color:var(--em)">🏘️ Socialized Subdivision Housing</div><div class="sub">Sec. 3(a), JMC 2023-003 · Minimum lot area: 28 sqm · Includes lot + house</div></div>
+      <div class="grid2">
+        <div class="price-hero" style="background:var(--emp);border-color:var(--em)">
+          <div style="color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase">Price Ceiling</div>
+          <div class="price-big" style="color:var(--em)">₱850,000</div>
+          <div class="price-sub" style="color:var(--muted)">Per unit (lot + house)</div>
+        </div>
+        <div class="price-hero" style="background:var(--goldp);border-color:var(--gold)">
+          <div style="color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase">Minimum Lot Area</div>
+          <div class="price-big" style="color:var(--gold)">28 sqm</div>
+          <div class="price-sub" style="color:var(--muted)">Per BP 220 standard</div>
+        </div>
+      </div>
+      <div style="margin-top:14px" id="subdiv-details"></div>
+    </div>
+
+    <!-- CONDOMINIUM -->
+    <div class="card" style="border-top:3px solid var(--blue)">
+      <div class="sh"><div class="title" style="color:var(--blue)">🏢 Socialized Condominium Housing — Tiered by Building Height</div><div class="sub">Sec. 3(b), JMC 2023-003 · Price ceiling depends on number of storeys</div></div>
+      <div class="kp" style="border-color:var(--orange);background:var(--orangep)">
+        ⚠️ <strong>Key Rule:</strong> The tiered pricing for condominiums reflects the higher construction cost of taller buildings. The higher the building, the higher the allowed ceiling — but ALL tiers still qualify as "socialized housing."
+      </div>
+      <div id="condo-tiers"></div>
+      <div style="overflow-x:auto;margin-top:14px">
+        <table class="tbl">
+          <thead><tr>
+            <th style="color:var(--muted)">Building Type</th>
+            <th style="color:var(--blue)">No. of Storeys</th>
+            <th style="color:var(--em)">Price Ceiling (per unit)</th>
+            <th style="color:var(--gold)">vs. 2018 Cap</th>
+          </tr></thead>
+          <tbody id="condo-table"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- WHAT'S INCLUDED / EXCLUDED -->
+    <div class="grid2">
+      <div class="card" style="border-top:3px solid var(--em)">
+        <div class="sh"><div class="title" style="color:var(--em)">✅ What's Included in the Ceiling Price</div></div>
+        <div id="included"></div>
+      </div>
+      <div class="card" style="border-top:3px solid var(--red)">
+        <div class="sh"><div class="title" style="color:var(--red)">❌ NOT Included / Key Exclusions</div></div>
+        <div id="excluded"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 2018 vs 2023 ══ -->
+  <div class="section" id="sec-compare">
+    <div class="card" style="background:var(--goldp);border-left:4px solid var(--gold)">
+      <div style="color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;margin-bottom:5px">Why the Update? — The 2018 → 2023 Comparison</div>
+      <p style="color:var(--soft);font-size:14px;line-height:1.8">The 2018 price caps became obsolete due to construction cost inflation, rising land values, and post-pandemic material price increases. JMC 2023-003 raised ceilings significantly to make socialized housing development financially viable while keeping units affordable for target beneficiaries.</p>
+    </div>
+
+    <!-- BIG VS DISPLAY -->
+    <div class="card">
+      <div class="sh"><div class="title" style="color:var(--em)">Subdivision — 2018 vs. 2023</div></div>
+      <div class="vs-grid">
+        <div class="vs-box" style="background:var(--redp);border-left:4px solid var(--red)">
+          <div style="color:var(--red);font-weight:800;font-size:12px;margin-bottom:5px">2018 CEILING (Superseded)</div>
+          <div style="font-size:28px;font-weight:900;font-family:monospace;color:var(--red)">₱480,000</div>
+          <div style="font-size:12px;color:var(--soft);margin-top:4px">Per socialized subdivision unit</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:3px">HLURB / HUDCC 2018</div>
+        </div>
+        <div class="vs-lbl">→</div>
+        <div class="vs-box" style="background:var(--emp);border-left:4px solid var(--em)">
+          <div style="color:var(--em);font-weight:800;font-size:12px;margin-bottom:5px">2023 CEILING (JMC 2023-003) ✓</div>
+          <div style="font-size:28px;font-weight:900;font-family:monospace;color:var(--em)">₱850,000</div>
+          <div style="font-size:12px;color:var(--soft);margin-top:4px">Per socialized subdivision unit</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:3px">Increase: +₱370,000 (+77%)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONDO FULL COMPARISON TABLE -->
+    <div class="card">
+      <div class="sh"><div class="title" style="color:var(--blue)">Condominium — Full 2018 vs. 2023 Comparison</div></div>
+      <div style="overflow-x:auto">
+        <table class="tbl">
+          <thead><tr>
+            <th style="color:var(--muted)">Building Height</th>
+            <th style="color:var(--red)">2018 Ceiling (old)</th>
+            <th style="color:var(--em)">2023 Ceiling (JMC 2023-003)</th>
+            <th style="color:var(--blue)">Increase (₱)</th>
+            <th style="color:var(--gold)">Increase (%)</th>
+          </tr></thead>
+          <tbody id="full-compare-table"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- WHY IT MATTERS -->
+    <div class="card">
+      <div class="sh"><div class="title" style="color:var(--purple)">Why the Increase Matters — Board Exam Context</div></div>
+      <div id="why-matters"></div>
+    </div>
+
+    <!-- DISCREPANCY / EXAM TRAPS -->
+    <div class="card" style="background:#FFF8E0;border:2px solid var(--gold)">
+      <div style="color:var(--gold);font-weight:800;font-size:14px;margin-bottom:8px;display:flex;align-items:center;gap:8px">⚠️ Exam Traps & Critical Distinctions</div>
+      <div id="exam-traps"></div>
+    </div>
+  </div>
+
+  <!-- ══ DEFINITIONS & COVERAGE ══ -->
+  <div class="section" id="sec-definitions">
+    <div class="card" style="background:var(--emp);border-left:4px solid var(--em)">
+      <p style="color:var(--soft);font-size:14px;line-height:1.8">Understanding WHO qualifies as a socialized housing beneficiary and WHAT qualifies as socialized housing is as important as knowing the price ceilings. These definitions flow from RA 7279 (UDHA), BP 220, and RA 6846 — all supplemented by JMC 2023-003.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <div class="sh"><div class="title" style="color:var(--em)">Definition of Socialized Housing</div><div class="sub">RA 7279 Sec. 3(t) | BP 220 | JMC 2023-003</div></div>
+        <div id="def-socialized"></div>
+      </div>
+      <div class="card">
+        <div class="sh"><div class="title" style="color:var(--blue)">Who Are the Target Beneficiaries?</div><div class="sub">RA 7279 Sec. 3(t) | RA 6846</div></div>
+        <div id="beneficiaries"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="sh"><div class="title" style="color:var(--gold)">BP 220 Standards — Minimum Requirements for Socialized Housing</div><div class="sub">Batas Pambansa 220 (1982) — Still in force; JMC 2023-003 complies</div></div>
+      <div style="overflow-x:auto">
+        <table class="tbl">
+          <thead><tr>
+            <th style="color:var(--muted)">Standard</th>
+            <th style="color:var(--gold)">Socialized Housing (BP 220)</th>
+            <th style="color:var(--blue)">Economic Housing (BP 220)</th>
+            <th style="color:var(--em)">Open Market</th>
+          </tr></thead>
+          <tbody id="bp220-table"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <div class="sh"><div class="title" style="color:var(--purple)">Balanced Housing Development</div><div class="sub">RA 7279 Sec. 18 — Critical for REB/REA</div></div>
+        <div id="balanced-housing"></div>
+      </div>
+      <div class="card">
+        <div class="sh"><div class="title" style="color:var(--teal)">Exemptions from Balanced Housing</div></div>
+        <div id="bh-exemptions"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ LEGAL FRAMEWORK ══ -->
+  <div class="section" id="sec-legal">
+    <div class="card" style="background:var(--navyp);border-left:4px solid var(--navy)">
+      <p style="color:var(--soft);font-size:14px;line-height:1.8">JMC 2023-003 does not stand alone — it implements and updates a web of laws governing socialized housing in the Philippines. Understanding this legal ecosystem is critical for both REB and REA exams.</p>
+    </div>
+    <div id="legal-framework"></div>
+    <div class="card">
+      <div class="sh"><div class="title" style="color:var(--em)">Issuing Authority — Why DHSUD Can Issue This JMC</div></div>
+      <div id="authority"></div>
+    </div>
+    <div class="card">
+      <div class="sh"><div class="title" style="color:var(--blue)">Related DHSUD & HLURB Issuances</div><div class="sub">Previous price ceilings and their status</div></div>
+      <div style="overflow-x:auto">
+        <table class="tbl">
+          <thead><tr>
+            <th style="color:var(--muted)">Issuance</th><th style="color:var(--blue)">Price Ceiling (Subdiv.)</th>
+            <th style="color:var(--em)">Date</th><th style="color:var(--red)">Status</th>
+          </tr></thead>
+          <tbody id="issuances-table"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ REB ANGLE ══ -->
+  <div class="section" id="sec-reb">
+    <div class="card" style="background:var(--emp);border-left:4px solid var(--em)">
+      <div style="color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;margin-bottom:5px">REB Exam Focus — Special & Technical Knowledge</div>
+      <p style="color:var(--soft);font-size:14px;line-height:1.8">For the Real Estate Broker exam, JMC 2023-003 is tested under Special Laws — specifically on price ceilings, balanced housing requirements, and what constitutes a socialized housing unit that a broker may lawfully market and sell.</p>
+    </div>
+    <div id="reb-mustknow"></div>
+    <div class="card" style="background:var(--goldp)">
+      <div class="sh"><div class="title" style="color:var(--gold)">⚡ Quick-Fire REB Facts</div><div class="sub">Memorize these — board exam tested</div></div>
+      <div id="reb-quickfire"></div>
+    </div>
+    <div class="card">
+      <div class="sh"><div class="title" style="color:var(--blue)">Financing Socialized Housing — Key Programs</div><div class="sub">Pag-IBIG, SSS, SHFC, NHA — lenders and programs brokers must know</div></div>
+      <div id="financing"></div>
+    </div>
+  </div>
+
+  <!-- ══ REA ANGLE ══ -->
+  <div class="section" id="sec-rea">
+    <div class="card" style="background:var(--purplep);border-left:4px solid var(--purple)">
+      <div style="color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;margin-bottom:5px">REA Exam Focus — Land Management & Valuation</div>
+      <p style="color:var(--soft);font-size:14px;line-height:1.8">For the Real Estate Appraiser exam, JMC 2023-003 directly affects property valuation — specifically in determining whether a property falls within socialized housing parameters, and how the price ceiling impacts highest and best use analysis and comparable selection.</p>
+    </div>
+    <div id="rea-topics"></div>
+    <div class="card">
+      <div class="sh"><div class="title" style="color:var(--gold)">Appraisal Impact Table</div><div class="sub">How JMC 2023-003 ceilings affect valuation work</div></div>
+      <div style="overflow-x:auto">
+        <table class="tbl">
+          <thead><tr>
+            <th style="color:var(--muted)">Scenario</th>
+            <th style="color:var(--purple)">Appraisal Consideration</th>
+            <th style="color:var(--em)">Impact on Value</th>
+          </tr></thead>
+          <tbody id="rea-table"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ QUIZ ══ -->
+  <div class="section" id="sec-quiz">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+      <div style="color:var(--muted);font-size:13px" id="q-counter">Question 1 of 14</div>
+      <div style="color:var(--gold);font-weight:700" id="q-score">Score: 0</div>
+    </div>
+    <div style="background:var(--emp);border:1px solid var(--em)40;border-radius:12px;padding:18px;margin-bottom:12px">
+      <div style="color:var(--ink);font-size:15px;line-height:1.75" id="q-text"></div>
+      <div style="margin-top:7px"><span class="pill" id="q-src" style="background:var(--emp);color:var(--em);border:1px solid var(--em)40"></span>
+      <span class="pill" style="background:#FFD70020;color:#7A5000;border:1px solid #C8880A40;margin-left:4px">HIGH YIELD ⚡</span></div>
+    </div>
+    <div id="q-opts"></div>
+    <div class="exp-box" id="q-exp"></div>
+    <button id="check-btn" onclick="handleBtn()">Check Answer</button>
+    <div id="results" style="display:none;text-align:center;padding:28px 20px">
+      <div id="r-emoji" style="font-size:48px;margin-bottom:12px"></div>
+      <div id="r-verdict" style="font-weight:900;font-size:26px;margin-bottom:6px"></div>
+      <div id="r-score" style="font-size:20px;margin-bottom:4px"></div>
+      <div id="r-pct" style="color:var(--muted);font-size:14px;margin-bottom:16px"></div>
+      <div style="display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-bottom:16px" id="r-cells"></div>
+      <div id="r-msg" style="color:var(--gold);font-size:14px;margin-bottom:20px"></div>
+      <button onclick="restartQuiz()" style="background:var(--em);color:#fff;border:none;border-radius:8px;padding:12px 28px;font-weight:700;cursor:pointer;font-size:14px">Retake Quiz</button>
+    </div>
+  </div>
+</div>
+
+<div id="footer"><div class="fi" id="footer-nav"></div></div>
+
+<script>
+const TABS=[
+  {id:"overview",    icon:"📋",label:"Overview & History",      color:"#007A40"},
+  {id:"prices",      icon:"💰",label:"Price Ceilings (2023)",   color:"#007A40"},
+  {id:"compare",     icon:"⚖️",label:"2018 vs. 2023",           color:"#C8880A"},
+  {id:"definitions", icon:"📖",label:"Definitions & Coverage",  color:"#1A3A7A"},
+  {id:"legal",       icon:"📜",label:"Legal Framework",         color:"#0A1A3A"},
+  {id:"reb",         icon:"🏢",label:"REB Angle",               color:"#007A40"},
+  {id:"rea",         icon:"🔍",label:"REA Angle",               color:"#5A1A8A"},
+  {id:"quiz",        icon:"✏️",label:"Quiz",                    color:"#007A40"},
+];
+
+const KF1=[
+  {l:"Full title",   v:"Revised Price Ceilings for Socialized Housing under B.P. Blg. 220 and Related Laws"},
+  {l:"Signed",       v:"October 19, 2023"},
+  {l:"Effectivity",  v:"Immediately upon signing — applies to all projects awaiting license to sell or development permit"},
+  {l:"Supersedes",   v:"HUDCC/HLURB 2018 price caps for socialized housing (subdivision: ₱480,000)"},
+  {l:"Subdivision",  v:"₱850,000 per unit (lot + house); minimum 28 sqm lot area"},
+  {l:"Condo — 4-story", v:"₱933,320 to ₱1,145,438 (sliding scale by floor level)"},
+  {l:"Condo — 5–9 story", v:"₱1,227,273 per unit"},
+  {l:"Condo — 10+ story", v:"₱1,620,000 per unit"},
+  {l:"Legal basis",  v:"RA 7279 (UDHA), BP 220, RA 11201 (DHSUD Charter), RA 6846"},
+  {l:"Applying to",  v:"All private developers and government housing agencies (NHA, SHFC, LGUs)"},
+];
+
+const KF2=[
+  {l:"Lead agency",   v:"DHSUD — Department of Human Settlements and Urban Development", c:"#007A40"},
+  {l:"Co-issuer",     v:"HSAC — Human Settlements Adjudication Commission", c:"#1A3A7A"},
+  {l:"Co-issuer",     v:"NHA — National Housing Authority", c:"#5A1A8A"},
+  {l:"Co-issuer",     v:"SHFC — Social Housing Finance Corporation", c:"#B05010"},
+  {l:"Co-issuer",     v:"HDMF — Home Development Mutual Fund (Pag-IBIG Fund)", c:"#007A40"},
+  {l:"Predecessor",   v:"HLURB (abolished) — functions transferred to DHSUD & HSAC under RA 11201 (2019)", c:"#B02020"},
+  {l:"Technical body",v:"BLUP — Board of Land Use Planning (under DHSUD)", c:"#1A3A7A"},
+  {l:"DOF role",      v:"DOF-BLGF — RPT assessment affects land component of socialized units", c:"#C8880A"},
+];
+
+const PRICE_SNAP=[
+  {label:"Subdivision",sub:"Lot + house unit",price:"₱850,000",color:"#007A40",min:"28 sqm lot"},
+  {label:"Condo 4-Storey",sub:"(per floor level)",price:"₱933K–1.1M",color:"#1A3A7A",min:"Sliding scale"},
+  {label:"Condo 5–9 Storey",sub:"Mid-rise",price:"₱1,227,273",color:"#5A1A8A",min:"Fixed ceiling"},
+  {label:"Condo 10+ Storey",sub:"High-rise",price:"₱1,620,000",color:"#B05010",min:"Fixed ceiling"},
+];
+
+const TIMELINE=[
+  {date:"1982",color:"#5A1A8A",event:"Batas Pambansa 220 — Socialized Housing Standards",detail:"Established minimum design and construction standards for economic and socialized housing. Set the 28 sqm minimum lot area for socialized housing subdivision lots. Still in force; JMC 2023-003 complies with BP 220 standards."},
+  {date:"1986",color:"#1A3A7A",event:"Executive Order 90 — HUDCC Created",detail:"Housing and Urban Development Coordinating Council created to coordinate all government housing agencies. Predecessor of DHSUD in setting price ceilings and housing policy."},
+  {date:"1992",color:"#007A40",event:"RA 7279 — Urban Development & Housing Act (UDHA)",detail:"Defined socialized housing; mandated Balanced Housing Development (Sec. 18) — private developers of open-market/economic housing must allocate 15–20% of project area for socialized housing or contribute to a socialized housing fund. Still the primary law."},
+  {date:"1993",color:"#B05010",event:"RA 7835 — Comprehensive and Integrated Shelter Finance Act",detail:"Established financing support for socialized housing beneficiaries through Pag-IBIG, SSS, GSIS, and NHA. Key financing framework that complements price ceiling rules."},
+  {date:"2002",color:"#007A40",event:"RA 9171 — Amended RA 7279 on Socialized Housing Compliance",detail:"Clarified and expanded compliance options for developers under Sec. 18 of RA 7279. Added cash contribution option to the socialized housing fund as an alternative to in-kind development."},
+  {date:"2007",color:"#1A3A7A",event:"HLURB Resolution 932 — Price Ceiling ₱300,000",detail:"Set socialized subdivision price ceiling at ₱300,000. First systematic tiered ceiling for condominiums by building height. Regularly revised as construction costs increased."},
+  {date:"2010",color:"#1A3A7A",event:"HLURB / HUDCC — Price Ceiling Adjusted to ₱400,000",detail:"Regular adjustment of price ceiling to reflect inflation and construction cost increases. Each revision required all ongoing projects to re-assess pricing compliance."},
+  {date:"2018",color:"#B02020",event:"HUDCC/HLURB — Price Ceiling ₱480,000 (Last pre-2023 cap)",detail:"Set the socialized subdivision ceiling at ₱480,000. Condo tiers also updated. This ceiling became obsolete post-2020 due to sharp increases in steel, concrete, and labor costs from the COVID-19 pandemic's supply chain disruptions."},
+  {date:"2019",color:"#007A40",event:"RA 11201 — DHSUD Charter; HLURB Abolished",detail:"Established the Department of Human Settlements and Urban Development. Transferred HLURB's regulatory functions (licensing, permits, price ceilings) to DHSUD. HLURB's adjudicatory functions transferred to HSAC. DHSUD now the primary housing regulator."},
+  {date:"2020–2022",color:"#B02020",event:"COVID-19 — Construction Cost Surge",detail:"Global supply chain disruptions caused steel, concrete, and material costs to spike 30–60%. The ₱480,000 ceiling became financially unviable for developers — most socialized housing projects slowed or stopped. Industry clamored for ceiling revision."},
+  {date:"2023 (Oct 19)",color:"#007A40",event:"DHSUD JMC 2023-003 — Revised Price Ceilings SIGNED",detail:"Secretary Jose Rizalino Acuzar signs JMC 2023-003, raising subdivision ceiling to ₱850,000 (+77%) and revising all condominium tiers. Effective immediately. Industry hailed as necessary to revive socialized housing development."},
+];
+
+const RELATED_LAWS=[
+  {law:"BP 220 (1982)",color:"#5A1A8A",rel:"Batas Pambansa 220 — Minimum design/construction standards for socialized and economic housing. Sets the 28 sqm minimum lot area for socialized subdivision. JMC 2023-003 ceilings apply to units compliant with BP 220."},
+  {law:"RA 7279 (UDHA, 1992)",color:"#007A40",rel:"Urban Development and Housing Act — defines socialized housing; mandates Balanced Housing Development (Sec. 18) requiring private developers to set aside 15–20% of project cost for socialized housing. Primary legal basis for all price ceilings."},
+  {law:"RA 7835 (1994)",color:"#B05010",rel:"Comprehensive and Integrated Shelter Finance Act — governs Pag-IBIG, NHA, and SHFC financing programs for socialized housing beneficiaries. Sets financing parameters that interact with JMC 2023-003's price ceilings."},
+  {law:"RA 11201 (DHSUD Charter, 2019)",color:"#007A40",rel:"Established DHSUD as successor to HLURB for housing regulation. Grants DHSUD authority to set and revise price ceilings for socialized housing — legal basis for JMC 2023-003 issuance."},
+  {law:"RA 9646 (RESA, 2009)",color:"#1A3A7A",rel:"Real Estate Service Act — requires licensed real estate brokers to know applicable price ceilings when marketing socialized housing. Brokers who misrepresent the socialized status of a unit (or charge above ceiling) face license sanctions."},
+  {law:"RA 6846 (1990)",color:"#5A1A8A",rel:"Sets the income ceiling for socialized housing beneficiaries. Families earning at or below the socialized housing income threshold (low-income households) are the target beneficiaries. JMC 2023-003 price ceilings serve this group."},
+  {law:"PD 957 (Subdivision & Condo Buyers' Decree)",color:"#B05010",rel:"Protects buyers of subdivision lots and condominium units. Applies to all housing projects including socialized. Developer must secure License to Sell (LTS) before selling — JMC 2023-003 price compliance is reviewed as part of LTS application."},
+  {law:"RA 9679 (Pag-IBIG Fund Law, 2009)",color:"#C8880A",rel:"Mandatory Pag-IBIG membership; governs the housing loan programs that finance socialized housing purchases at preferential rates. Most socialized housing buyers use Pag-IBIG End-User Financing."},
+  {law:"RA 11935 (2023 amendment)",color:"#007A40",rel:"Most recent amendment to housing laws — extended deadlines for Pag-IBIG housing loan takeout and enhanced housing loan programs. Works with JMC 2023-003's higher ceilings to make higher-priced socialized units still affordable through subsidized financing."},
+];
+
+const PEOPLE=[
+  {icon:"🏛️",name:"Sec. Jose Rizalino 'Jerry' Acuzar",role:"DHSUD Secretary — Signed JMC 2023-003",color:"#007A40",desc:"Secretary of the Department of Human Settlements and Urban Development. His signature on JMC 2023-003 (October 19, 2023) made the revised price ceilings immediately effective. A major private sector housing developer before assuming public office."},
+  {icon:"⚖️",name:"HSAC (Human Settlements Adjudication Commission)",role:"Co-issuer of JMC 2023-003",color:"#1A3A7A",desc:"Successor to HLURB's adjudicatory function under RA 11201 (2019). Co-issued JMC 2023-003. Handles complaints from buyers of subdivision lots and condominium units — including those involving price ceiling violations."},
+  {icon:"🏠",name:"NHA — National Housing Authority",role:"Co-issuer; government housing developer",color:"#5A1A8A",desc:"Primary government housing developer and implementing agency for socialized housing programs. Co-issued JMC 2023-003 to align government-built socialized housing projects with the new ceilings."},
+  {icon:"💰",name:"SHFC — Social Housing Finance Corporation",role:"Co-issuer; socialized housing lender",color:"#B05010",desc:"Government financing institution specializing in socialized housing loans (Community Mortgage Program and Abot Kaya Pabahay Fund). Co-issued JMC 2023-003 to update loan parameters matching the new price ceilings."},
+  {icon:"🏦",name:"HDMF / Pag-IBIG Fund",role:"Co-issuer; primary housing loan provider",color:"#007A40",desc:"The largest source of housing loans for socialized housing buyers. Co-issued JMC 2023-003 because the new price ceilings directly affect Pag-IBIG's socialized housing loan limits and affordability programs."},
+  {icon:"📊",name:"HLURB (now defunct)",role:"Predecessor regulator — set 2018 caps",color:"#B02020",desc:"Housing and Land Use Regulatory Board — abolished by RA 11201 (2019). Its regulatory functions (licensing, price ceilings) transferred to DHSUD. The 2018 price ceiling (₱480,000 for subdivision) was HLURB's last major pricing issuance before its abolition."},
+];
+
+const SUBDIV_DETAILS=[
+  {t:"Price Ceiling",d:"₱850,000 per unit inclusive of the lot — the TOTAL selling price cannot exceed ₱850,000 for the unit to qualify as socialized."},
+  {t:"Minimum Lot Area",d:"28 square meters per lot — BP 220 standard. JMC 2023-003 maintains this minimum; developers cannot reduce lot size below 28 sqm."},
+  {t:"Minimum Floor Area",d:"22 square meters for the housing unit (per BP 220 standard for socialized housing)."},
+  {t:"Location",d:"May be inside or outside Metro Manila. The same ₱850,000 ceiling applies nationwide — no regional differentiation for subdivision units under JMC 2023-003."},
+  {t:"What 'per unit' means",d:"Inclusive of the lot AND house. Raw lot-only packages or house-only packages priced at ₱850,000 are NOT socialized housing units under this JMC."},
+  {t:"License to Sell (LTS)",d:"Developer must secure LTS from DHSUD before selling. Price compliance with JMC 2023-003 is reviewed during LTS application. Units priced above ₱850,000 cannot be tagged as socialized in the LTS."},
+];
+
+const CONDO_TIERS=[
+  {label:"4-Storey",floors:"Up to 4 floors",color:"#1A3A7A",price:"₱933,320 – ₱1,145,438",detail:"Sliding scale by floor level within the 4-storey building. Ground floor units: closer to ₱933,320. Top (4th) floor: up to ₱1,145,438. The tiering reflects that lower floors in walk-up buildings are slightly more accessible."},
+  {label:"5 to 9 Storey",floors:"5–9 floors",color:"#5A1A8A",price:"₱1,227,273",detail:"Mid-rise condominium buildings. Fixed ceiling of ₱1,227,273 per unit regardless of floor level within this height bracket. Higher construction cost (elevator required) justifies higher ceiling than 4-storey."},
+  {label:"10 Storey and Above",floors:"10+ floors",color:"#B05010",price:"₱1,620,000",detail:"High-rise condominium buildings. Fixed ceiling of ₱1,620,000 per unit. Highest allowed price ceiling — reflects significantly higher construction cost of high-rise (structural steel, higher elevator requirements, fireproofing, etc.)."},
+];
+
+const CONDO_TABLE_DATA=[
+  ["4-storey (low end)","~₱700,000 (est.)","₱933,320","+~₱233,320","+~33%"],
+  ["4-storey (high end)","~₱900,000 (est.)","₱1,145,438","+~₱245,438","+~27%"],
+  ["5–9 storey","~₱960,000 (est.)","₱1,227,273","~+₱267,000","+~28%"],
+  ["10+ storey","~₱1,200,000 (est.)","₱1,620,000","~+₱420,000","+~35%"],
+];
+
+const FULL_COMPARE=[
+  ["Subdivision lot + house","₱480,000","₱850,000","₱370,000","+77%"],
+  ["4-storey condo (ground)","~₱700,000*","₱933,320","~+₱233,320","+~33%"],
+  ["4-storey condo (4th floor)","~₱900,000*","₱1,145,438","~+₱245,000","+~27%"],
+  ["5–9 storey condo","~₱960,000*","₱1,227,273","~+₱267,000","+~28%"],
+  ["10+ storey condo","~₱1,200,000*","₱1,620,000","~+₱420,000","+~35%"],
+];
+
+const INCLUDED=[
+  "Cost of the lot (for subdivision units)",
+  "Cost of construction of the dwelling unit",
+  "Developer's overhead and profit",
+  "Documentary stamp taxes and transfer costs IF expressly included in the contract",
+  "Connection fees for utilities IF expressly included in the selling price",
+  "All amenities and improvements standard to the project",
+];
+
+const EXCLUDED=[
+  "Homeowners' association dues (HOA) — these are ongoing charges, not part of the selling price",
+  "Registration fees and capital gains tax — paid separately by buyer/seller per agreement",
+  "Utility deposits — electric, water, cable — separate from selling price",
+  "Optional upgrades or add-ons (e.g., appliance packages) — must not be bundled into ceiling price",
+  "Parking slots in condominium projects — priced separately (NOT included in ₱1.6M ceiling)",
+];
+
+const WHY_MATTERS=[
+  {t:"Developer viability",d:"At ₱480,000 (2018 cap), construction cost per sqm for even basic units exceeded the ceiling by 2022. Developers stopped building socialized housing — creating a supply gap. The new ₱850,000 ceiling restores feasibility."},
+  {t:"Impact on Balanced Housing compliance",d:"Private developers of open-market/economic housing who must comply with Sec. 18 of RA 7279 (Balanced Housing) can now develop or contribute to socialized housing projects priced under ₱850,000 — making compliance more practical."},
+  {t:"Pag-IBIG loan alignment",d:"Pag-IBIG's housing loan programs (Affordable Housing Loan) must be aligned with the new ceilings so beneficiaries can borrow up to ₱850,000 for socialized subdivision units at preferential interest rates."},
+  {t:"Appraisal implications",d:"Socialized housing units are appraised with the ₱850,000/₱1.62M ceiling as a market constraint. Units priced ABOVE the ceiling lose 'socialized' classification and cannot access Pag-IBIG Affordable Housing terms."},
+];
+
+const EXAM_TRAPS=[
+  {q:"The ceiling is ₱480,000 for socialized housing.",a:"WRONG — ₱480,000 was the 2018 cap, SUPERSEDED by JMC 2023-003. Current ceiling is ₱850,000 for subdivision units (effective October 19, 2023)."},
+  {q:"All condominiums have the same ₱850,000 ceiling.",a:"WRONG — Condominiums have a TIERED ceiling based on building height: 4-storey: ₱933,320–₱1,145,438; 5–9 storey: ₱1,227,273; 10+ storey: ₱1,620,000."},
+  {q:"A parking slot is included in the condo ceiling price.",a:"WRONG — Parking slots are priced SEPARATELY and are NOT included in the socialized condominium ceiling (₱1.62M for high-rise is for the unit only)."},
+  {q:"The 28 sqm minimum lot area was set by JMC 2023-003.",a:"WRONG — The 28 sqm minimum was set by BP 220 (1982). JMC 2023-003 maintains this standard but did NOT create it."},
+  {q:"HLURB issued JMC 2023-003.",a:"WRONG — HLURB was abolished by RA 11201 (2019). JMC 2023-003 was issued by DHSUD (successor to HLURB) together with HSAC, NHA, SHFC, and Pag-IBIG."},
+  {q:"A unit sold at ₱900,000 can be classified as socialized subdivision housing.",a:"WRONG — ₱900,000 exceeds the ₱850,000 ceiling for socialized subdivision housing. It cannot be classified as socialized, regardless of the lot size or unit features."},
+];
+
+const DEF_SOCIALIZED=[
+  {t:"RA 7279 Sec. 3(t) definition",d:"Socialized housing = housing programs and projects covering houses and lots or home lots only undertaken by the government or the private sector for the underprivileged and homeless citizens, which shall include sites and services development, long-term tenurial security, and other alternative forms of shelter."},
+  {t:"Price criterion",d:"A housing unit qualifies as socialized ONLY IF its selling price is AT OR BELOW the price ceiling set by DHSUD (now ₱850,000 for subdivision; tiered for condominiums per JMC 2023-003)."},
+  {t:"Target group",d:"Underprivileged and homeless citizens — specifically low-income families who cannot afford housing in the open market. Income ceiling varies but generally below the informal sector income bracket."},
+  {t:"NOT socialized",d:"A low-cost housing unit priced above the ceiling is classified as ECONOMIC housing (next tier up) — even if built to the same BP 220 standard."},
+];
+
+const BENEFICIARIES=[
+  {t:"Primary target",d:"Filipino families who are underprivileged, homeless, or unable to acquire housing through the open market due to income constraints."},
+  {t:"Income ceiling",d:"Generally, beneficiaries earn below the socialized housing income threshold set by SHFC and Pag-IBIG. Pag-IBIG Affordable Housing: monthly income ≤ ₱14,500 (as of latest guidelines)."},
+  {t:"Priority",d:"RA 7279 Sec. 7 lists priorities: (a) homeless; (b) victims of calamities/disaster; (c) underprivileged in danger areas; (d) illegal settlers in government project sites; (e) senior citizens, persons with disability."},
+  {t:"Cannot be informal settlers",d:"Priority resettlement beneficiaries who are currently living in danger zones, waterways, or areas earmarked for government projects."},
+  {t:"Must be owner-occupants",d:"Socialized housing is for actual occupancy — NOT for investment or rental income. Beneficiary must personally use the unit."},
+];
+
+const BP220_TABLE=[
+  ["Min. lot area","28 sqm (row house)","64 sqm","No minimum (market)"],
+  ["Min. floor area","22 sqm","42 sqm","No minimum (market)"],
+  ["Road right-of-way","6 meters (alley: 3m)","8 meters","12+ meters"],
+  ["Open space","30% of gross area","30% of gross area","Per zoning"],
+  ["Price ceiling","₱850,000 (JMC 2023-003)","₱1.7M–₱3M (economic)","Above ₱3M"],
+  ["Financing","Pag-IBIG Affordable / SHFC","Pag-IBIG regular","Open market"],
+];
+
+const BALANCED_HOUSING=[
+  {t:"Sec. 18, RA 7279 — The Requirement",d:"Private developers of OPEN-MARKET or ECONOMIC HOUSING projects must develop an area equivalent to at least 20% of the total project area OR total project cost for socialized housing — in the same city or municipality, or in a contiguous city or municipality."},
+  {t:"Alternatives to in-kind development",d:"(a) Joint venture with NHA or government housing; (b) Participation in community mortgage programs; (c) Contribution to the Local Housing Board's socialized housing fund (cash equivalent). The cash equivalent must be used exclusively for socialized housing."},
+  {t:"20% rule — what it means",d:"If a developer builds a ₱1B open-market subdivision, at least ₱200M worth (or equivalent area) must be allocated to socialized housing. After JMC 2023-003, the value of the socialized component is still based on ₱850,000/unit ceiling."},
+  {t:"Failure to comply",d:"License to Sell (LTS) for the main project may be suspended or revoked. DHSUD may deny new LTS applications until compliance is demonstrated."},
+];
+
+const BH_EXEMPTIONS=[
+  {t:"Socialized housing projects themselves",d:"A developer building PURELY socialized housing is exempt from the Balanced Housing requirement — their entire project IS the compliance."},
+  {t:"Projects with area ≤ 1 hectare",d:"Small projects (total area of 1 hectare or less) may be exempt per DHSUD guidelines, as the 20% set-aside may not be feasible on such small land area."},
+  {t:"Industrial/commercial projects",d:"Balanced housing obligation applies only to RESIDENTIAL subdivision and condominium projects. Industrial estates and commercial developments are excluded."},
+  {t:"Government projects",d:"NHA, SHFC, and other government housing projects are exempt — they ARE the socialized housing."},
+];
+
+const LEGAL_FRAMEWORK=[
+  {law:"RA 7279 (UDHA)",color:"#007A40",icon:"🏛️",scope:"Primary law",detail:"Foundation of all socialized housing regulation. Defines socialized housing, mandates Balanced Housing (Sec. 18), and directs the housing agencies to set price ceilings. JMC 2023-003 is the latest exercise of the rulemaking authority granted under RA 7279."},
+  {law:"BP 220 (1982)",color:"#5A1A8A",icon:"📐",scope:"Design standards",detail:"Sets the minimum physical standards for socialized and economic housing. The 28 sqm minimum lot and 22 sqm minimum floor area come from BP 220 — NOT from JMC 2023-003. JMC 2023-003 only revises price ceilings; BP 220 standards remain unchanged."},
+  {law:"RA 11201 (DHSUD Charter)",color:"#007A40",icon:"🏢",scope:"Issuing authority",detail:"Created DHSUD and granted it authority to set price ceilings, issue licenses to sell, and regulate all aspects of housing development. This is the direct legal authority for JMC 2023-003. Without RA 11201, DHSUD could not have issued this JMC."},
+  {law:"PD 957",color:"#B05010",icon:"🔑",scope:"Buyer protection",detail:"All socialized housing projects (subdivision and condominium) must comply with PD 957 — License to Sell required before marketing. JMC 2023-003 price compliance is reviewed as part of the LTS application under PD 957."},
+  {law:"RA 9679 (Pag-IBIG)",color:"#C8880A",icon:"🏦",scope:"Financing",detail:"Governs Pag-IBIG Fund's housing loan programs. The Affordable Housing Loan program (for socialized housing beneficiaries) is calibrated to the price ceilings in JMC 2023-003. Maximum Pag-IBIG affordable loan now aligned to ₱850,000 for subdivision."},
+];
+
+const AUTHORITY=[
+  {t:"RA 11201, Sec. 5(a)",d:"DHSUD shall 'formulate and implement policies, plans, programs, standards, rules and regulations, and guidelines for the housing and real estate industry.' This includes setting price ceilings."},
+  {t:"RA 7279, Sec. 3(t) & Sec. 18",d:"UDHA directs housing agencies to define and update the price ceiling for socialized housing to reflect current construction costs and market conditions. JMC 2023-003 is the 2023 exercise of this mandate."},
+  {t:"Why a JMC (joint circular)?",d:"Because multiple agencies co-administer socialized housing programs — DHSUD (regulation), NHA (development), SHFC (community lending), Pag-IBIG (individual lending), HSAC (adjudication). All must align their programs to the same price ceiling — hence a JOINT memorandum circular."},
+];
+
+const ISSUANCES_TABLE=[
+  ["HLURB Resolution 932 (2007)","₱300,000","2007","Superseded"],
+  ["HUDCC / HLURB (2010)","₱400,000","2010","Superseded"],
+  ["HUDCC / HLURB (2018)","₱480,000","2018","SUPERSEDED by JMC 2023-003"],
+  ["DHSUD JMC 2023-003","₱850,000","Oct 19, 2023","CURRENT ✓ In force"],
+];
+
+const REB_MUSTNKNOW=[
+  {t:"₱850,000 is the current socialized ceiling for subdivision",color:"#007A40",d:"Effective October 19, 2023. Any broker marketing a subdivision unit as 'socialized housing' when the price exceeds ₱850,000 is misrepresenting the unit — exposable to DHSUD complaint and PRC sanction."},
+  {t:"Tiered condo ceilings — know all three tiers",color:"#1A3A7A",d:"4-storey: ₱933,320–₱1,145,438. 5–9 storey: ₱1,227,273. 10+ storey: ₱1,620,000. A broker selling high-rise socialized condo units must know the ₱1,620,000 ceiling — common exam scenario."},
+  {t:"Balanced Housing — 20% rule (Sec. 18, RA 7279)",color:"#5A1A8A",d:"Every broker marketing open-market or economic housing must disclose whether the developer is compliant with Sec. 18 — the 20% balanced housing obligation. Non-compliant developers may have LTS issues that affect the validity of the sale."},
+  {t:"License to Sell (LTS) under PD 957",color:"#B05010",d:"Developers must secure LTS before selling ANY housing unit (socialized or otherwise). A broker selling units without a valid LTS is jointly liable with the developer. Always verify LTS status before marketing socialized housing."},
+  {t:"Socialized housing = no seller's agent commission from buyer",color:"#C8880A",d:"Under DHSUD rules, brokers' commissions for socialized housing must come from the DEVELOPER's side — NOT from the buyer. The selling price to the buyer must NOT exceed the ceiling, inclusive of all charges."},
+  {t:"Minimum 28 sqm lot — BP 220, not JMC 2023-003",color:"#007A40",d:"The 28 sqm minimum lot area is set by BP 220 (1982). JMC 2023-003 only revised PRICE ceilings. A broker asked 'what law sets the minimum lot area for socialized housing?' should answer BP 220, not JMC 2023-003."},
+];
+
+const REB_QUICKFIRE=[
+  {q:"Current socialized subdivision ceiling?",a:"₱850,000 (JMC 2023-003, Oct 19 2023)"},
+  {q:"Minimum lot area for socialized housing?",a:"28 sqm (BP 220, 1982)"},
+  {q:"Socialized condo — 10+ storey ceiling?",a:"₱1,620,000"},
+  {q:"Socialized condo — 5–9 storey ceiling?",a:"₱1,227,273"},
+  {q:"Who issued JMC 2023-003?",a:"DHSUD + HSAC + NHA + SHFC + Pag-IBIG"},
+  {q:"What did JMC 2023-003 supersede?",a:"HUDCC/HLURB 2018 ₱480,000 ceiling"},
+  {q:"HLURB status now?",a:"Abolished (2019); functions → DHSUD + HSAC"},
+  {q:"Balanced housing — what % of project?",a:"20% (Sec. 18, RA 7279)"},
+  {q:"Is parking included in condo ceiling?",a:"NO — priced separately"},
+];
+
+const FINANCING=[
+  {t:"Pag-IBIG Affordable Housing Loan",d:"For socialized housing buyers earning ≤ ₱14,500/month. Interest rate: 3% per annum (5 years fixed). Maximum loanable amount aligned with JMC 2023-003 ceilings. MOST COMMON financing channel for socialized housing."},
+  {t:"SHFC — Community Mortgage Program (CMP)",d:"For informal settler families who want to own their occupied land collectively. Covers residential lots; assisted by non-government organizations. Priced within socialized ceiling."},
+  {t:"NHA Housing Programs",d:"Government-built socialized housing sold or rented to qualified beneficiaries. Prices below JMC 2023-003 ceilings. Beneficiaries screened and selected by NHA."},
+  {t:"SSS Housing Loan",d:"For private sector employees. Available for socialized housing purchase. Interest rates comparable to Pag-IBIG. Secondary option to Pag-IBIG for qualified SSS members."},
+  {t:"GSIS Housing Loan",d:"For government employees. Similar to SSS program. Preferential rates for socialized housing purchase."},
+];
+
+const REA_TOPICS=[
+  {t:"Price ceiling as a value cap",color:"#5A1A8A",d:"For socialized housing appraisal, the price ceiling (₱850,000/₱1.62M) acts as a MARKET CONSTRAINT — it artificially caps what the property can sell for while retaining its 'socialized' classification. Appraisers must flag this: market value may exceed ceiling, but the unit can only be SOLD as socialized at or below ₱850,000."},
+  {t:"Highest and best use — socialized vs. economic",color:"#007A40",d:"When appraising raw land in areas designated for socialized housing, the HBU analysis must consider whether the zoning/CLUP designation restricts development to socialized housing. Land with a Balanced Housing obligation may have its HBU capped at the socialized ceiling — directly affecting land value."},
+  {t:"Comparable selection — beware mixing tiers",color:"#1A3A7A",d:"When selecting comparables for condominium units, appraisers must use comparables WITHIN THE SAME STOREY TIER. A 4-storey socialized condo (max ₱1.1M) is NOT comparable to a 10-storey socialized condo (max ₱1.62M) — different height tier, different ceiling, different cost structure."},
+  {t:"A&D land value near socialized housing areas",color:"#B05010",d:"Raw land designated for socialized housing (per CLUP/zoning) is valued differently from open-market land. The lower ceiling constrains residual land value. Appraisers must discount for the socialized housing designation when valuing raw land for this purpose."},
+  {t:"Cost approach for socialized housing",color:"#007A40",d:"Under the cost approach: reproduction/replacement cost of a BP 220-standard socialized unit (28 sqm lot, 22 sqm floor area) should fall BELOW ₱850,000 for the project to be financially viable. If cost exceeds ceiling, the developer is operating at a loss — the cost approach confirms infeasibility at the old 2018 ceiling."},
+];
+
+const REA_TABLE=[
+  ["Unit priced at ₱800,000 (subdivision)","Within ₱850K ceiling — qualifies as socialized","Ceiling acts as market constraint; value capped at ₱850K for socialized purpose"],
+  ["Unit priced at ₱920,000 (subdivision)","Exceeds ceiling — NOT socialized; reclassify as economic","Market value approach applies; economic housing comparables used"],
+  ["10-storey condo at ₱1,500,000","Within ₱1.62M ceiling — qualifies as socialized","High-rise socialized; ceiling constrains value; Pag-IBIG affordable loan applicable"],
+  ["10-storey condo at ₱1,700,000","Exceeds ₱1.62M ceiling — NOT socialized","Economic/open market classification; different comparable set"],
+  ["Raw land in socialized zone","HBU constrained by socialized housing designation","Residual land value depressed vs. open-market; disclose in appraisal report"],
+  ["Balanced housing lot set-aside","Developer must contribute 20% to socialized — reduces net saleable area","Reduces land yield; affects developer's residual land valuation"],
+];
+
+const QUIZ=[
+  {q:"Under DHSUD JMC 2023-003 (October 19, 2023), what is the current price ceiling for a socialized SUBDIVISION housing unit (lot + house)?",src:"JMC 2023-003 Sec. 3(a)",choices:["₱480,000","₱750,000","₱850,000","₱1,000,000"],ans:2,exp:"JMC 2023-003 Sec. 3(a): The price ceiling for socialized subdivision housing (lot + house) is ₱850,000, effective October 19, 2023. This superseded the old ₱480,000 ceiling set by HUDCC/HLURB in 2018 — a 77% increase driven by post-pandemic construction cost inflation."},
+  {q:"What is the price ceiling for a socialized condominium unit in a building with 10 storeys or more, under JMC 2023-003?",src:"JMC 2023-003 Sec. 3(b)",choices:["₱850,000","₱1,145,438","₱1,227,273","₱1,620,000"],ans:3,exp:"JMC 2023-003 sets a tiered ceiling for socialized condominiums based on building height. For 10-storey and above (high-rise), the ceiling is ₱1,620,000 per unit. This is the HIGHEST tier — reflecting the significantly higher construction cost of high-rise buildings. The progression: 4-storey up to ₱1,145,438 → 5–9 storey ₱1,227,273 → 10+ storey ₱1,620,000."},
+  {q:"What is the price ceiling for a socialized condominium unit in a 7-storey building under JMC 2023-003?",src:"JMC 2023-003 Sec. 3(b)",choices:["₱933,320","₱1,145,438","₱1,227,273","₱1,620,000"],ans:2,exp:"A 7-storey building falls within the 5–9 storey tier under JMC 2023-003. The ceiling for this tier is ₱1,227,273 per unit. This is a fixed ceiling for all units in 5–9 storey buildings — unlike the 4-storey tier which has a sliding scale by floor level."},
+  {q:"JMC 2023-003 was issued by which primary agency?",src:"JMC 2023-003 Preamble",choices:["HLURB","HUDCC","DHSUD, together with HSAC, NHA, SHFC, and Pag-IBIG","BIR and BLGF jointly"],ans:2,exp:"JMC 2023-003 was issued by DHSUD (Department of Human Settlements and Urban Development) as lead agency, together with HSAC, NHA, SHFC, and Pag-IBIG. HLURB was ABOLISHED in 2019 by RA 11201 — its functions transferred to DHSUD. HUDCC was likewise superseded by DHSUD."},
+  {q:"What was the socialized SUBDIVISION price ceiling that JMC 2023-003 SUPERSEDED?",src:"JMC 2023-003 / History",choices:["₱300,000 (2007)","₱400,000 (2010)","₱480,000 (2018)","₱750,000 (2022)"],ans:2,exp:"The 2018 HUDCC/HLURB price ceiling of ₱480,000 for socialized subdivision housing is what JMC 2023-003 superseded. This 2018 ceiling had become financially unviable for developers by 2022–2023 due to sharp increases in construction material costs during and after the COVID-19 pandemic."},
+  {q:"The minimum lot area of 28 sqm for socialized housing subdivision units is set by which law?",src:"BP 220 (1982)",choices:["JMC 2023-003","DHSUD Administrative Order 2019","Batas Pambansa 220 (1982)","RA 7279, Sec. 3(t)"],ans:2,exp:"The 28 sqm minimum lot area for socialized housing subdivision lots is set by BATAS PAMBANSA 220 (1982) — the law on minimum design and construction standards for economic and socialized housing. JMC 2023-003 only revised PRICE CEILINGS — it did not change BP 220 physical standards. A common exam trap is attributing the 28 sqm standard to JMC 2023-003."},
+  {q:"Under RA 7279 Sec. 18 (Balanced Housing Development), a private developer of an open-market residential subdivision must set aside at least what percentage of the project for socialized housing?",src:"RA 7279 Sec. 18",choices:["10%","15%","20%","25%"],ans:2,exp:"Section 18 of RA 7279 (UDHA) requires private developers of open-market and economic housing projects to develop an area equivalent to at least 20% of the total project area or cost for socialized housing. This is the Balanced Housing Development requirement — compliance must be demonstrated to DHSUD before a License to Sell is issued for the main project."},
+  {q:"A real estate broker is marketing a subdivision unit priced at ₱900,000 as 'socialized housing.' Is this correct?",src:"JMC 2023-003 Sec. 3(a)",choices:["Yes — ₱900,000 is close enough to the socialized ceiling","Yes — if the lot area is 28 sqm or more","No — ₱900,000 exceeds the ₱850,000 socialized housing ceiling","No — socialized housing cannot exceed ₱480,000"],ans:2,exp:"₱900,000 EXCEEDS the ₱850,000 price ceiling for socialized subdivision housing under JMC 2023-003. A unit priced above the ceiling CANNOT be classified as socialized housing — regardless of its size, location, or construction standard. The broker's marketing is inaccurate and potentially violates PD 957 and RESA (RA 9646) disclosure requirements."},
+  {q:"Which of the following is NOT included in the ₱850,000 socialized subdivision price ceiling?",src:"JMC 2023-003 / PD 957",choices:["Cost of the lot","Cost of construction of the house","Documentary stamp taxes if included in the contract","Homeowners association (HOA) monthly dues"],ans:3,exp:"HOA monthly dues are NOT part of the selling price and are NOT included in the ₱850,000 ceiling. They are ongoing operational charges collected separately after purchase. The ceiling covers the TOTAL SELLING PRICE of the unit (lot + house + included fees) — not recurring charges like HOA dues, utility bills, or real property taxes."},
+  {q:"Under JMC 2023-003, which condominium tier has a SLIDING SCALE price ceiling (not a fixed price)?",src:"JMC 2023-003 Sec. 3(b)",choices:["4-storey buildings (up to 4 floors)","5–9 storey buildings","10–15 storey buildings","All tiers have fixed prices"],ans:0,exp:"The 4-storey (up to 4 floors) tier under JMC 2023-003 has a SLIDING SCALE of ₱933,320 to ₱1,145,438, varying by floor level within the building. This reflects that even within a 4-storey walk-up, construction and desirability differences exist by floor. The 5–9 storey tier (₱1,227,273) and 10+ storey tier (₱1,620,000) both have FIXED ceilings regardless of floor level within the tier."},
+  {q:"For REA appraisal purposes: A 4-storey socialized condominium unit is being appraised. The appraiser selects as a comparable a 12-storey socialized condominium unit in the same area. What is the KEY error?",src:"REA / JMC 2023-003",choices:["No error — both are socialized housing","The comparable is in the wrong LGU","The 12-storey unit is in a different JMC tier (₱1.62M ceiling vs. ₱1.14M) — different cost structure and market","Socialized units cannot be used as comparables for appraisal"],ans:2,exp:"The key error is mixing appraisal tiers. The 4-storey unit has a ceiling of up to ₱1,145,438 (JMC 2023-003 tier for ≤4 storeys) while the 12-storey unit has a ceiling of ₱1,620,000 (10+ storey tier). These reflect fundamentally different construction costs (walk-up vs. high-rise with structural steel, elevators, fireproofing). Using a high-rise comparable for a walk-up unit introduces a material cost/value mismatch."},
+  {q:"A developer is building a ₱500M open-market subdivision. Under RA 7279 Sec. 18, how much must be allocated to socialized housing?",src:"RA 7279 Sec. 18",choices:["₱50M (10%)","₱75M (15%)","₱100M (20%)","₱125M (25%)"],ans:2,exp:"RA 7279 Sec. 18 (Balanced Housing) requires at least 20% of the total project cost to be allocated for socialized housing. 20% of ₱500M = ₱100M worth of socialized housing. This can be fulfilled by: (a) developing socialized housing within the same city/municipality; (b) joint venture with NHA; (c) contributing ₱100M cash to the local housing fund exclusively for socialized housing."},
+  {q:"Which law granted DHSUD the authority to issue JMC 2023-003 revising socialized housing price ceilings?",src:"RA 11201 (DHSUD Charter)",choices:["RA 7279 (UDHA)","PD 957 (Subdivision Decree)","RA 11201 (DHSUD Charter, 2019)","BP 220 (1982)"],ans:2,exp:"RA 11201 (2019) established the DHSUD and granted it authority to 'formulate and implement policies, plans, programs, standards, rules and regulations, and guidelines for the housing and real estate industry' — including setting price ceilings for socialized housing. RA 7279 provides the substantive policy mandate, but RA 11201 is the DHSUD's organizational charter that gives it the specific power to issue this JMC."},
+  {q:"Under JMC 2023-003, what is the price ceiling for a socialized condominium unit in a 4-storey building at the HIGHEST floor (4th floor)?",src:"JMC 2023-003 Sec. 3(b)",choices:["₱850,000","₱933,320","₱1,145,438","₱1,227,273"],ans:2,exp:"For 4-storey socialized condominium buildings, JMC 2023-003 uses a SLIDING SCALE by floor level. The ceiling RANGES from ₱933,320 (ground/lowest floor) to ₱1,145,438 (4th/top floor). The 4th floor of a 4-storey building uses the HIGHEST end of the sliding scale: ₱1,145,438. This reflects the premium pricing that would apply to upper floors in walk-up buildings."},
+];
+
+// ═══════════ BUILD ═══════════
+const C={em:"#007A40",gold:"#C8880A",blue:"#1A3A7A",red:"#B02020",purple:"#5A1A8A",orange:"#B05010",teal:"#006878",navy:"#0A1A3A"};
+const pill=(t,c)=>`<span class="pill" style="background:${c}18;color:${c};border:1px solid ${c}40">${t}</span>`;
+const fr=(l,v,c="#007A40")=>`<div style="display:flex;gap:10px;margin-bottom:7px;align-items:flex-start"><div style="color:${c};font-weight:700;font-size:11px;min-width:110px;text-transform:uppercase;letter-spacing:.3px;padding-top:1px;flex-shrink:0">${l}</div><div style="color:var(--ink);font-size:13px">${v}</div></div>`;
+const cr=(t,d,c)=>`<div style="display:flex;gap:8px;margin-bottom:8px;padding:8px 12px;background:${c}0D;border-radius:8px;border-left:3px solid ${c}"><div><strong style="color:${c};font-size:12px">${t}</strong><div style="color:var(--soft);font-size:12px;line-height:1.6;margin-top:2px">${d}</div></div></div>`;
+
+function build(){
+  // Tabs
+  ['tabs','footer-nav'].forEach(id=>{
+    const el=document.getElementById(id);
+    TABS.forEach(t=>{
+      const b=document.createElement('button');
+      b.className=id==='tabs'?'tab-btn':'foot-btn';
+      b.dataset.id=t.id;
+      b.innerHTML=id==='tabs'?`${t.icon} <span>${t.label}</span>`:`${t.icon} ${t.label}`;
+      b.onclick=()=>activate(t.id);
+      el.appendChild(b);
+    });
+  });
+
+  // Overview
+  document.getElementById('kf1').innerHTML=KF1.map(f=>fr(f.l,f.v)).join('');
+  document.getElementById('kf2').innerHTML=KF2.map(f=>fr(f.l,f.v,f.c)).join('');
+  document.getElementById('price-snapshot').innerHTML=PRICE_SNAP.map(p=>`
+    <div class="price-hero" style="background:${p.color}0D;border-color:${p.color}40">
+      <div style="color:var(--muted);font-size:10px;font-weight:700;text-transform:uppercase">${p.label}</div>
+      <div style="font-size:10px;color:var(--muted);margin-bottom:3px">${p.sub}</div>
+      <div class="price-big" style="color:${p.color}">${p.price}</div>
+      <div class="price-sub" style="color:var(--muted)">${p.min}</div>
+    </div>`).join('');
+  document.getElementById('timeline').innerHTML=TIMELINE.map(t=>`
+    <div class="tl-item"><div class="tl-dot" style="background:${t.color}"></div>
+    <div class="tl-date" style="color:${t.color}">${t.date} — ${t.event}</div>
+    <div class="tl-body">${t.detail}</div></div>`).join('');
+  document.getElementById('related-laws').innerHTML=RELATED_LAWS.map(l=>`
+    <div style="display:flex;gap:14px;margin-bottom:10px;padding:10px 14px;background:var(--tint);border-radius:8px;align-items:flex-start">
+      <div style="flex-shrink:0">${pill(l.law,l.color)}</div>
+      <span style="color:var(--soft);font-size:13px;flex:1">${l.rel}</span>
+    </div>`).join('');
+  document.getElementById('people').innerHTML=PEOPLE.map(p=>`
+    <div class="pcard" style="border-color:${p.color}">
+      <div class="picon" style="background:${p.color}18">${p.icon}</div>
+      <div><div style="color:${p.color};font-weight:700;font-size:13px">${p.name}</div>
+      <div style="color:${p.color};font-size:11px;font-weight:600;margin-bottom:4px">${p.role}</div>
+      <div style="color:var(--muted);font-size:12px;line-height:1.6">${p.desc}</div></div>
+    </div>`).join('');
+
+  // Prices
+  document.getElementById('subdiv-details').innerHTML=SUBDIV_DETAILS.map(s=>cr(s.t,s.d,C.em)).join('');
+  document.getElementById('condo-tiers').innerHTML=CONDO_TIERS.map(t=>`
+    <div class="tier-card" style="border-color:${t.color}30;border-left:4px solid ${t.color};background:${t.color}07">
+      <div class="tier-label" style="color:${t.color}">${t.label} — ${t.floors}</div>
+      <div class="tier-price" style="color:${t.color}">${t.price}</div>
+      <div class="tier-detail" style="color:var(--soft)">${t.detail}</div>
+    </div>`).join('');
+  document.getElementById('condo-table').innerHTML=CONDO_TABLE_DATA.map((r,i)=>`
+    <tr style="background:${i%2===0?'var(--tint)':'var(--card)'}">
+      <td style="font-weight:700;color:var(--navy)">${r[0]}</td>
+      <td style="color:var(--red);text-decoration:line-through">${r[1]}</td>
+      <td style="color:var(--em);font-weight:700">${r[2]}</td>
+      <td style="color:var(--gold)">${r[3]} ${r[4]}</td>
+    </tr>`).join('');
+  document.getElementById('included').innerHTML=INCLUDED.map(i=>`<div style="display:flex;gap:8px;margin-bottom:7px"><span style="color:var(--em)">✓</span><span style="color:var(--soft);font-size:13px">${i}</span></div>`).join('');
+  document.getElementById('excluded').innerHTML=EXCLUDED.map(i=>`<div style="display:flex;gap:8px;margin-bottom:7px"><span style="color:var(--red)">✗</span><span style="color:var(--soft);font-size:13px">${i}</span></div>`).join('');
+
+  // Compare
+  document.getElementById('full-compare-table').innerHTML=FULL_COMPARE.map((r,i)=>`
+    <tr style="background:${i%2===0?'var(--tint)':'var(--card)'}">
+      <td style="font-weight:700;color:var(--navy)">${r[0]}</td>
+      <td style="color:var(--red);text-decoration:line-through">${r[1]}</td>
+      <td style="color:var(--em);font-weight:700">${r[2]}</td>
+      <td style="color:var(--blue)">${r[3]}</td>
+      <td><span class="pill" style="background:var(--emp);color:var(--em);border:1px solid var(--em)40">${r[4]}</span></td>
+    </tr>`).join('');
+  document.getElementById('why-matters').innerHTML=WHY_MATTERS.map(w=>cr(w.t,w.d,C.em)).join('');
+  document.getElementById('exam-traps').innerHTML=EXAM_TRAPS.map(t=>`
+    <div style="margin-bottom:10px;padding:10px 13px;background:var(--card);border-radius:8px;border:1px solid var(--border)">
+      <div style="color:var(--red);font-size:12px;font-weight:600;margin-bottom:4px">❌ WRONG: "${t.q}"</div>
+      <div style="color:var(--em);font-size:12px;font-weight:700;border-left:2px solid var(--em);padding-left:8px">✓ CORRECT: ${t.a}</div>
+    </div>`).join('');
+
+  // Definitions
+  document.getElementById('def-socialized').innerHTML=DEF_SOCIALIZED.map(d=>cr(d.t,d.d,C.em)).join('');
+  document.getElementById('beneficiaries').innerHTML=BENEFICIARIES.map(b=>cr(b.t,b.d,C.blue)).join('');
+  document.getElementById('bp220-table').innerHTML=BP220_TABLE.map((r,i)=>`
+    <tr style="background:${i%2===0?'var(--tint)':'var(--card)'}">
+      <td style="font-weight:700;color:var(--muted)">${r[0]}</td>
+      <td style="color:var(--em)">${r[1]}</td>
+      <td style="color:var(--blue)">${r[2]}</td>
+      <td style="color:var(--orange)">${r[3]}</td>
+    </tr>`).join('');
+  document.getElementById('balanced-housing').innerHTML=BALANCED_HOUSING.map(b=>cr(b.t,b.d,C.purple)).join('');
+  document.getElementById('bh-exemptions').innerHTML=BH_EXEMPTIONS.map(b=>cr(b.t,b.d,C.teal)).join('');
+
+  // Legal
+  document.getElementById('legal-framework').innerHTML=LEGAL_FRAMEWORK.map(l=>`
+    <div style="padding:14px 16px;background:var(--card);border-radius:10px;border:1px solid var(--border);border-left:4px solid ${l.color};margin-bottom:10px;display:flex;gap:14px">
+      <span style="font-size:22px;flex-shrink:0">${l.icon}</span>
+      <div><div style="display:flex;gap:8px;align-items:center;margin-bottom:4px">
+        <div style="color:${l.color};font-weight:700;font-size:14px">${l.law}</div>
+        ${pill(l.scope,l.color)}</div>
+        <div style="color:var(--soft);font-size:13px;line-height:1.6">${l.detail}</div>
+      </div>
+    </div>`).join('');
+  document.getElementById('authority').innerHTML=AUTHORITY.map(a=>cr(a.t,a.d,C.em)).join('');
+  document.getElementById('issuances-table').innerHTML=ISSUANCES_TABLE.map((r,i)=>`
+    <tr style="background:${i%2===0?'var(--tint)':'var(--card)'}">
+      <td style="font-weight:700;color:var(--navy)">${r[0]}</td>
+      <td style="color:var(--em);font-weight:700;font-family:monospace">${r[1]}</td>
+      <td style="color:var(--muted)">${r[2]}</td>
+      <td><span class="pill" style="background:${r[3].includes('CURRENT')?'var(--emp)':'var(--redp)'};color:${r[3].includes('CURRENT')?'var(--em)':'var(--red)'};border:none">${r[3]}</span></td>
+    </tr>`).join('');
+
+  // REB
+  document.getElementById('reb-mustknow').innerHTML=REB_MUSTNKNOW.map(r=>`
+    <div style="padding:13px 16px;background:var(--card);border-radius:10px;border:1px solid var(--border);border-left:4px solid ${r.color};margin-bottom:10px">
+      <div style="color:${r.color};font-weight:700;font-size:14px;margin-bottom:5px">${r.t}</div>
+      <div style="color:var(--soft);font-size:13px;line-height:1.7">${r.d}</div>
+    </div>`).join('');
+  document.getElementById('reb-quickfire').innerHTML=REB_QUICKFIRE.map(r=>`
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;padding:9px 12px;background:var(--card);border-radius:8px;border:1px solid var(--border)">
+      <div style="color:var(--soft);font-size:12px;font-weight:600">Q: ${r.q}</div>
+      <div style="color:var(--em);font-size:12px;font-weight:700;border-left:2px solid var(--em);padding-left:8px">A: ${r.a}</div>
+    </div>`).join('');
+  document.getElementById('financing').innerHTML=FINANCING.map(f=>cr(f.t,f.d,C.blue)).join('');
+
+  // REA
+  document.getElementById('rea-topics').innerHTML=REA_TOPICS.map(r=>`
+    <div style="padding:13px 16px;background:var(--card);border-radius:10px;border:1px solid var(--border);border-left:4px solid ${r.color};margin-bottom:10px">
+      <div style="color:${r.color};font-weight:700;font-size:14px;margin-bottom:5px">${r.t}</div>
+      <div style="color:var(--soft);font-size:13px;line-height:1.7">${r.d}</div>
+    </div>`).join('');
+  document.getElementById('rea-table').innerHTML=REA_TABLE.map((r,i)=>`
+    <tr style="background:${i%2===0?'var(--tint)':'var(--card)'}">
+      <td style="font-weight:600;color:var(--navy)">${r[0]}</td>
+      <td style="color:var(--soft)">${r[1]}</td>
+      <td style="color:${r[2].includes('Negative')||r[2].includes('depressed')||r[2].includes('reduces')?'var(--red)':'var(--em)'}">${r[2]}</td>
+    </tr>`).join('');
+
+  activate('overview');
+  renderQ();
+}
+
+function activate(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('sec-'+id).classList.add('active');
+  const t=TABS.find(t=>t.id===id);
+  document.getElementById('sec-icon').textContent=t.icon;
+  document.getElementById('sec-title').textContent=t.label;
+  document.getElementById('sec-title').style.color=t.color;
+  document.querySelectorAll('.tab-btn,.foot-btn').forEach(b=>{
+    const a=b.dataset.id===id;
+    const tc=TABS.find(x=>x.id===b.dataset.id).color;
+    b.classList.toggle('active',a);
+    b.style.color=a?tc:'#3A7058';
+    if(b.classList.contains('foot-btn')){
+      b.style.background=a?tc+'30':'transparent';
+      b.style.borderColor=a?tc:'transparent';
+    }
+  });
+}
+
+// ═══════════ QUIZ ═══════════
+let qc=0,qs=null,qr=false,qa=[];
+function renderQ(){
+  if(qc>=QUIZ.length){showRes();return;}
+  const q=QUIZ[qc];
+  document.getElementById('q-counter').textContent=`Question ${qc+1} of ${QUIZ.length}`;
+  document.getElementById('q-score').textContent=`Score: ${qa.filter(Boolean).length}`;
+  document.getElementById('q-text').textContent=q.q;
+  document.getElementById('q-src').textContent=q.src;
+  document.getElementById('q-exp').style.display='none';
+  qr=false;qs=null;
+  const btn=document.getElementById('check-btn');
+  btn.textContent='Check Answer';btn.style.background='#C0D8CC';btn.disabled=true;
+  const opts=document.getElementById('q-opts');opts.innerHTML='';
+  q.choices.forEach((c,i)=>{
+    const b=document.createElement('button');b.className='q-opt';b.textContent=c;
+    b.onclick=()=>{if(qr)return;qs=i;
+      document.querySelectorAll('.q-opt').forEach((x,j)=>{
+        x.style.background=j===i?'var(--emp)':'var(--card)';
+        x.style.borderColor=j===i?'var(--em)':'var(--border)';
+        x.style.color=j===i?'var(--em)':'var(--soft)';
+      });
+      btn.disabled=false;btn.style.background='#007A40';
+    };opts.appendChild(b);
+  });
+  document.getElementById('results').style.display='none';
+}
+function handleBtn(){if(!qr)reveal();else{qc++;renderQ();}}
+function reveal(){
+  if(qs===null)return;qr=true;
+  const q=QUIZ[qc],correct=qs===q.ans;qa[qc]=correct;
+  document.querySelectorAll('.q-opt').forEach((b,i)=>{b.onclick=null;if(i===q.ans)b.classList.add('correct');else if(i===qs&&!correct)b.classList.add('wrong');});
+  const exp=document.getElementById('q-exp');
+  exp.innerHTML=`<strong style="color:var(--blue)">💡 EXPLANATION</strong><br>${q.exp}`;exp.style.display='block';
+  const btn=document.getElementById('check-btn');btn.style.background='#1A3A7A';
+  btn.textContent=qc+1>=QUIZ.length?'See Results →':'Next Question →';
+}
+function showRes(){
+  const score=qa.filter(Boolean).length,pct=Math.round(score/QUIZ.length*100);
+  document.getElementById('q-counter').style.display='none';
+  document.getElementById('results').style.display='block';
+  document.getElementById('r-emoji').textContent=pct>=75?'🏆':'📚';
+  document.getElementById('r-verdict').style.color=pct>=75?'#007A40':'#B02020';
+  document.getElementById('r-verdict').textContent=pct>=75?'PASSED!':'NEEDS MORE REVIEW';
+  document.getElementById('r-score').textContent=`${score} / ${QUIZ.length} correct`;
+  document.getElementById('r-pct').textContent=`${pct}% — PRC passing rate is 75%`;
+  document.getElementById('r-msg').textContent=pct>=75?'Top 1 REALEX & REBLEX 2027 — kaya mo yan! 🌟':'';
+  document.getElementById('r-cells').innerHTML=qa.map(a=>`<div class="sc" style="background:${a?'#E0F7EC':'#FDEAEA'};border:2px solid ${a?'#007A40':'#B02020'};color:${a?'#007A40':'#B02020'}">${a?'✓':'✗'}</div>`).join('');
+}
+function restartQuiz(){qc=0;qs=null;qr=false;qa=[];document.getElementById('q-counter').style.display='';renderQ();}
+build();
+</script>
+</body>
+</html>
